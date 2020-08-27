@@ -13,18 +13,22 @@ namespace Fitness.BL.Model
         /// Имя
         /// </summary>
         public string Name { get; }
+
         /// <summary>
         ///Пол 
         /// </summary>
         public Gender Gender { get; }
+
         /// <summary>
         /// День рождения
         /// </summary>
         public DateTime DateOfBirth { get;}
+
         /// <summary>
         /// Вес
         /// </summary>
         public double Weight { get; set; }
+
         /// <summary>
         /// Рост
         /// </summary>
@@ -75,6 +79,10 @@ namespace Fitness.BL.Model
             Height = _height;
         }
 
+        /// <summary>
+        /// Переписанный ToString
+        /// </summary>
+        /// <returns>Имя и Пол.</returns>
         public override string ToString()
         {
             return $"Name: {Name}, Gender: {Gender}";
