@@ -8,7 +8,7 @@ namespace Fitness.BL.Model
     class Gender
     {
         /// <summary>
-        /// Название
+        /// Название пола
         /// </summary>
         public string Name { get; }
         /// <summary>
