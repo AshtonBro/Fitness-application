@@ -6,7 +6,7 @@ namespace Fitness.BL.Model
     /// Пользователь
     /// </summary>
     [Serializable]
-    class User
+    public class User
     {
         #region Properties for user
         /// <summary>
@@ -47,7 +47,7 @@ namespace Fitness.BL.Model
                 throw new ArgumentNullException("Name of user can not be null or with white space");
             }
 
-            if (Gender == null)
+            if (_gender == null)
             {
                 throw new ArgumentNullException("Gender can not be null", nameof(_gender));
             }

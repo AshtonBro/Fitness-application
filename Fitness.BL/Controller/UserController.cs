@@ -8,7 +8,7 @@ namespace Fitness.BL.Controller
     /// <summary>
     /// Контроллер пользователя
     /// </summary>
-    class UserController
+    public class UserController
     {
         /// <summary>
         /// Пользователь приложения
@@ -18,11 +18,34 @@ namespace Fitness.BL.Controller
         /// <summary>
         /// Создание нового пользователя
         /// </summary>
-        /// <param name="_user">Пользователь</param>
-        public UserController(User _user)
+        /// <param name="userName">Пользователь</param>
+        public UserController(string userName, string genderName, DateTime dateOfBirdth, double weight, double height)
         {
-            User = _user ?? throw new ArgumentNullException("User can not be null", nameof(_user));
+            // TODO: Проверка
+
+            var gender = new Gender(genderName);
+            User = new User(userName, gender, dateOfBirdth, weight, height);
+           
         }
+
+        /// <summary>
+        /// Получить данные пользователя
+        /// </summary>
+        /// <returns>Пользователь приложения.</returns>
+        public UserController()
+        {
+            var formatter = new BinaryFormatter();
+            using (var fs = new FileStream("users.dat", FileMode.OpenOrCreate))
+            {
+                if (formatter.Deserialize(fs) is User user)
+                {
+                    User = user;
+                }
+
+                // TODO: Что делать, если пользователя не смогли загрузить?
+            }
+        }
+
         /// <summary>
         /// Сохранить данные пользователя
         /// </summary>
@@ -32,19 +55,6 @@ namespace Fitness.BL.Controller
             using (var fs = new FileStream("users.dat", FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fs ,User);
-            }
-        }
-
-        /// <summary>
-        /// Получить данные пользователя
-        /// </summary>
-        /// <returns>Пользователь приложения.</returns>
-        public User Load()
-        {
-            var formatter = new BinaryFormatter();
-            using (var fs = new FileStream("users.dat", FileMode.OpenOrCreate))
-            {
-                return formatter.Deserialize(fs) as User;
             }
         }
     }
