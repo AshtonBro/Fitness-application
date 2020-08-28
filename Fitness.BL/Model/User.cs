@@ -79,8 +79,18 @@ namespace Fitness.BL.Model
             Height = _height;
         }
 
+        public User(string _name)
+        {
+            if (string.IsNullOrWhiteSpace(_name))
+            {
+                throw new ArgumentNullException("Name of user can not be null or with white space");
+            }
+
+            Name = _name;
+        }
+
         /// <summary>
-        /// Переписанный ToString
+        /// Переназначенный ToString
         /// </summary>
         /// <returns>Имя и Пол.</returns>
         public override string ToString()

@@ -12,6 +12,7 @@ namespace Fitness.BL.Model
         /// Название пола
         /// </summary>
         public string Name { get; }
+
         /// <summary>
         /// Создать новый пол
         /// </summary>
@@ -22,8 +23,10 @@ namespace Fitness.BL.Model
             {
                 throw new ArgumentNullException("Name is not can be null or with white space");
             }
+
             Name = _name;
         }
+
         /// <summary>
         /// Переназначенный ToString 
         /// </summary>
