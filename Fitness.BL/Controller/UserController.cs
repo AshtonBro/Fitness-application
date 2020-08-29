@@ -75,7 +75,11 @@ namespace Fitness.BL.Controller
         public void SetNewUserData(string genderName, DateTime dateOfBirth, double weight = 1, double height = 1)
         {
             // Проверка 
-           CurrentUser.Gender
+            CurrentUser.Gender = new Gender(genderName);
+            CurrentUser.DateOfBirth = dateOfBirth;
+            CurrentUser.Weight = weight;
+            CurrentUser.Height = height;
+            Save();
         }
 
         /// <summary>
