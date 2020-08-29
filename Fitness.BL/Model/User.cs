@@ -48,40 +48,40 @@ namespace Fitness.BL.Model
         /// <param name="_dateofbirth">Дата рождения</param>
         /// <param name="_weight">Вес</param>
         /// <param name="_height">Рост</param>
-        public User(string _name, Gender _gender, DateTime _dateofbirth, double _weight, double _height)
+        public User(string name, Gender gender, DateTime dateofbirth, double weight, double height)
         {
             #region Checking input parameters
-            if (string.IsNullOrWhiteSpace(_name))
+            if (string.IsNullOrWhiteSpace(name))
             {
                 throw new ArgumentNullException("Name of user can not be null or with white space");
             }
 
-            if (_gender == null)
+            if (gender == null)
             {
-                throw new ArgumentNullException("Gender can not be null", nameof(_gender));
+                throw new ArgumentNullException("Gender can not be null", nameof(gender));
             }
 
-            if(_dateofbirth < DateTime.Parse("01.01.1950") || _dateofbirth >= DateTime.Now)
+            if(dateofbirth < DateTime.Parse("01.01.1950") || dateofbirth >= DateTime.Now)
             {
-                throw new ArgumentException("Impossible date of birth", nameof(_dateofbirth));
+                throw new ArgumentException("Impossible date of birth", nameof(dateofbirth));
             }
 
-            if(_weight <= 0)
+            if(weight <= 0)
             {
-                throw new ArgumentException("The weight can not be smaller or is equal than 0", nameof(_weight));
+                throw new ArgumentException("The weight can not be smaller or is equal than 0", nameof(weight));
             }
 
-            if(_height <= 0)
+            if(height <= 0)
             {
-                throw new ArgumentException("The height can not be smaller or is equal than 0", nameof(_height));
+                throw new ArgumentException("The height can not be smaller or is equal than 0", nameof(height));
             }
             #endregion
 
-            Name = _name;
-            Gender = _gender;
-            DateOfBirth = _dateofbirth;
-            Weight = _weight;
-            Height = _height;
+            Name = name;
+            Gender = gender;
+            DateOfBirth = dateofbirth;
+            Weight = weight;
+            Height = height;
         }
 
         public User(string _name)
