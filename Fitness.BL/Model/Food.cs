@@ -31,21 +31,26 @@ namespace Fitness.BL.Model
         /// </summary>
         public double Calories { get; }
 
-        public Food(string name) : this(name, 0, 0, 0, 0)
-        {
-            // TODO: Проверка
-
-            Name = name;
-        }
+        public Food(string name) : this(name, 0, 0, 0, 0) { }
 
         public Food(string name, double proteins, double fats, double carbohydrates, double calories)
         {
             // TODO: Проверка
+
             Name = name;
             Proteins = proteins / 100.0;
             Fats = fats / 100.0;
             Carbohydrates = carbohydrates / 100.0;
             Calories = calories / 100.0;
+        }
+
+        /// <summary>
+        /// Переопределили toString для продукта питания
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return $"Продукт: {Name}, Калорийность: {Calories}.";
         }
 
     }
