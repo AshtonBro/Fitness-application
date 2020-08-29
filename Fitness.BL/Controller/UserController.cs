@@ -72,6 +72,13 @@ namespace Fitness.BL.Controller
             }
         }
 
+        /// <summary>
+        /// Если имя уже есть, то добавляем новую информацию по пользователю
+        /// </summary>
+        /// <param name="genderName">Пол</param>
+        /// <param name="dateOfBirth">Дата рождения</param>
+        /// <param name="weight">Вес</param>
+        /// <param name="height">Рост</param>
         public void SetNewUserData(string genderName, DateTime dateOfBirth, double weight = 1, double height = 1)
         {
             // Проверка 

@@ -12,15 +12,56 @@ namespace Fitness.CMD
             var name = Console.ReadLine();
 
             var userController = new UserController(name);
-
-            Console.WriteLine(userController.CurrentUser);
             if(userController.IsNewUser)
             {
-               
-                
-            }
-            Console.ReadLine();
+                Console.Write("Введите пол: ");
+                var gender = Console.ReadLine();
+                var dateOfBirth = ParseDateTime();
+                var weight = ParseDouble("Вес");
+                var height = ParseDouble("Рост");
 
+                userController.SetNewUserData(gender, dateOfBirth, weight, height);
+            }
+
+
+            Console.WriteLine(userController.CurrentUser);
+            Console.ReadLine();
+        }
+
+        private static DateTime ParseDateTime()
+        {
+            DateTime dateOfBirth;
+            while (true)
+            {
+                Console.Write("Введите дату рождения (dd.MM.yyyy): ");
+
+                if (DateTime.TryParse(Console.ReadLine(), out dateOfBirth))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Неверный формат даты рождения.");
+                }
+            }
+
+            return dateOfBirth;
+        }
+
+        private static double ParseDouble(string name)
+        {
+            while (true)
+            {
+                Console.Write($"Введите {name}: ");
+                if (double.TryParse(Console.ReadLine(), out double value))
+                {
+                    return value;
+                }
+                else
+                {
+                    Console.WriteLine($"Неверный формат {name}.");
+                }
+            }
         }
     }
 }
