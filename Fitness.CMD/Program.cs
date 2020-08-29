@@ -13,8 +13,14 @@ namespace Fitness.CMD
 
             var userController = new UserController(name);
 
+            Console.WriteLine(userController.CurrentUser);
+            if(userController.IsNewUser)
+            {
+               
+                
+            }
+            Console.ReadLine();
 
-            userController.Save();
         }
     }
 }

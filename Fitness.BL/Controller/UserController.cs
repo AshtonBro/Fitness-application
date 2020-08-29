@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Fitness.BL.Controller
@@ -23,6 +24,11 @@ namespace Fitness.BL.Controller
         public User CurrentUser { get; }
 
         /// <summary>
+        /// Флаг, а новый пользователь ?
+        /// </summary>
+        public bool IsNewUser { get; } = false;
+
+        /// <summary>
         /// Создание нового пользователя
         /// </summary>
         /// <param name="userName">Пользователь</param>
@@ -41,6 +47,7 @@ namespace Fitness.BL.Controller
             {
                 CurrentUser = new User(userName);
                 Users.Add(CurrentUser);
+                IsNewUser = true;
                 Save();
             }
         }
@@ -63,6 +70,12 @@ namespace Fitness.BL.Controller
                     return new List<User>();
                 }
             }
+        }
+
+        public void SetNewUserData(string genderName, DateTime dateOfBirth, double weight = 1, double height = 1)
+        {
+            // Проверка 
+           CurrentUser.Gender
         }
 
         /// <summary>

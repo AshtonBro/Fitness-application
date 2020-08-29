@@ -17,12 +17,12 @@ namespace Fitness.BL.Model
         /// <summary>
         ///Пол 
         /// </summary>
-        public Gender Gender { get; }
+        public Gender Gender { get; set;  }
 
         /// <summary>
         /// День рождения
         /// </summary>
-        public DateTime DateOfBirth { get;}
+        public DateTime DateOfBirth { get; set; }
 
         /// <summary>
         /// Вес
@@ -33,6 +33,11 @@ namespace Fitness.BL.Model
         /// Рост
         /// </summary>
         public double Height { get; set; }
+
+        public int Age { get { return DateTime.Now.Year - DateOfBirth.Year; } }
+        // DateTime nowDate = DateTime.Today;
+        // int Age = nowDate.Year - birthDate.Year;
+        // if(birthDate > nowDate.AddYears(-age)) age--;
         #endregion
 
         /// <summary>
@@ -95,7 +100,7 @@ namespace Fitness.BL.Model
         /// <returns>Имя и Пол.</returns>
         public override string ToString()
         {
-            return $"Name: {Name}, Gender: {Gender}";
+            return $"Name: {Name}, Age: {Age}";
         }
     }
 }
