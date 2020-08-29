@@ -28,6 +28,10 @@ namespace Fitness.CMD
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Парсер входного параметра типа DateTime
+        /// </summary>
+        /// <returns></returns>
         private static DateTime ParseDateTime()
         {
             DateTime dateOfBirth;
@@ -48,6 +52,11 @@ namespace Fitness.CMD
             return dateOfBirth;
         }
 
+        /// <summary>
+        /// Парсер входного параметра типа double
+        /// </summary>
+        /// <param name="name">String</param>
+        /// <returns></returns>
         private static double ParseDouble(string name)
         {
             while (true)
