@@ -35,7 +35,7 @@ namespace Fitness.BL.Controller
         /// <summary>
         /// Список съеденных продуктов
         /// </summary>
-        public List<Eating> Eatings { get; }
+        public Eating Eating { get; }
 
         /// <summary>
         /// Если пользователь не null получаем полный список продуктов с принадлежностью к пользователю
@@ -45,26 +45,37 @@ namespace Fitness.BL.Controller
         {
             this.user = user ?? throw new ArgumentNullException("The user can't be null", nameof(user));
             Foods = GetAllFoods();
-            Eatings = GetAllEatings();
+            Eating = GetEating();
         }
 
         /// <summary>
-        /// Метод добавления еды
+        /// Метод добавления еды, если такого продукта нет было ранее, то добавляем новый.
         /// </summary>
-        /// <param name="foodName">Имя продукта</param>
-        /// <param name="calorie">Количество еды (калорий)</param>
-        public void Add(string foodName, double calorie)
+        /// <param name="food"></param>
+        /// <param name="calorie"></param>
+        public void Add(Food food, double calorie)
         {
-            var food = Foods.SingleOrDefault(f => f.Name == foodName);
+            var product = Foods.SingleOrDefault(f => f.Name == food.Name);
+            if(product == null)
+            {
+                Foods.Add(food);
+                Eating.Add(food, calorie);
+                Save();
+            }
+            else
+            {
+                Eating.Add(product, calorie);
+                Save();
+            }
         }
 
         /// <summary>
         /// Справочник приёмов пищи
         /// </summary>
         /// <returns></returns>
-        private List<Eating> GetAllEatings()
+        private Eating GetEating()
         {
-            return Load<List<Eating>>(EATING_FILE_NAME) ?? new List<Eating>();
+            return Load<Eating>(EATING_FILE_NAME) ?? new Eating(user);
         }
 
         /// <summary>
@@ -82,7 +93,7 @@ namespace Fitness.BL.Controller
         private void Save()
         {
             Save(FOODS_FILE_NAME, Foods);
-            Save(EATING_FILE_NAME, Eatings);
+            Save(EATING_FILE_NAME, Eating);
         }
     }
 }
