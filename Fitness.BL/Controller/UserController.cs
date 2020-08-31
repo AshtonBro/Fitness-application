@@ -14,6 +14,11 @@ namespace Fitness.BL.Controller
     public class UserController : ControllerBase
     {
         /// <summary>
+        /// Константа имя файла пользователей
+        /// </summary>
+        private const string USERS_FILE_NAME = "users.dat";
+
+        /// <summary>
         /// Пользователи приложения
         /// </summary>
         public List<User> Users { get; }
@@ -58,7 +63,7 @@ namespace Fitness.BL.Controller
         /// <returns>Пользователь приложения.</returns>
         private List<User> GetUsersDate()
         {
-            return Load<List<User>>("users.dat") ?? new List<User>();
+            return Load<List<User>>(USERS_FILE_NAME) ?? new List<User>();
 
         }
 
@@ -84,7 +89,7 @@ namespace Fitness.BL.Controller
         /// </summary>
         private void Save()
         {
-            Save("users.dat", Users);
+            Save(USERS_FILE_NAME, Users);
         }
     }
 }
