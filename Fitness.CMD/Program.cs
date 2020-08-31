@@ -28,7 +28,6 @@ namespace Fitness.CMD
 
 
             Console.WriteLine(userController.CurrentUser);
-
             Console.WriteLine("Что вы хотите сделать ?");
             Console.Write("Е - Ввести приём пищи: ");
             var key = Console.ReadKey();
