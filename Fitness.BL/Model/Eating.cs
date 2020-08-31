@@ -7,6 +7,7 @@ namespace Fitness.BL.Model
     /// <summary>
     /// Приём пищи
     /// </summary>
+    [Serializable]
     public class Eating
     {
         public DateTime  MomentOfEating { get; }

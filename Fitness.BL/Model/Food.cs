@@ -4,6 +4,7 @@ namespace Fitness.BL.Model
     /// <summary>
     /// Класс Еда, включает в себя наименование и состав продуктов
     /// </summary>
+    [Serializable]
     public class Food
     {
         /// <summary>
