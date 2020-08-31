@@ -11,7 +11,7 @@ namespace Fitness.BL.Controller
     /// <summary>
     /// Контроллер пользователя
     /// </summary>
-    public class UserController
+    public class UserController : ControllerBase
     {
         /// <summary>
         /// Пользователи приложения
@@ -58,18 +58,8 @@ namespace Fitness.BL.Controller
         /// <returns>Пользователь приложения.</returns>
         private List<User> GetUsersDate()
         {
-            var formatter = new BinaryFormatter();
-            using (var fs = new FileStream("users.dat", FileMode.OpenOrCreate))
-            {
-                if (fs.Length > 0 && formatter.Deserialize(fs) is List<User> users)
-                {
-                    return users;
-                }
-                else
-                {
-                    return new List<User>();
-                }
-            }
+            return Load<List<User>>("users.dat") ?? new List<User>();
+
         }
 
         /// <summary>
@@ -94,11 +84,7 @@ namespace Fitness.BL.Controller
         /// </summary>
         private void Save()
         {
-            var formatter = new BinaryFormatter();
-            using (var fs = new FileStream("users.dat", FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs , Users);
-            }
+            Save("users.dat", Users);
         }
     }
 }
