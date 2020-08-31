@@ -17,6 +17,8 @@ namespace Fitness.BL.Model
         public Eating(User user)
         {
             User = user ?? throw new ArgumentNullException("User can not be null", nameof(user));
+            MomentOfEating = DateTime.Now;
+            Foods = new Dictionary<Food, double>();
         }
     }
 }
