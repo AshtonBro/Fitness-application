@@ -23,11 +23,11 @@ namespace Fitness.CMD
 
             if (userController.IsNewUser)
             {
-                Console.Write(Languages.Messages.EnterGender);
+                Console.Write(resourceManager.GetString("EnterGender", сulture));
                 var gender = Console.ReadLine();
                 var dateOfBirth = ParseDateTime();
-                var weight = ParseDouble(Languages.Messages.EnterWeight);
-                var height = ParseDouble(Languages.Messages.EnterHeight);
+                var weight = ParseDouble(resourceManager.GetString("EnterWeight", сulture));
+                var height = ParseDouble(resourceManager.GetString("EnterHeight", сulture));
 
                 userController.SetNewUserData(gender, dateOfBirth, weight, height);
             }
