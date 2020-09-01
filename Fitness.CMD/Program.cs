@@ -1,6 +1,9 @@
 ﻿using Fitness.BL.Controller;
 using Fitness.BL.Model;
 using System;
+using System.CodeDom.Compiler;
+using System.Globalization;
+using System.Resources;
 
 namespace Fitness.CMD
 {
@@ -8,8 +11,12 @@ namespace Fitness.CMD
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Вас приветствует приложение AshFitness");
-            Console.Write("Введите имя пользователя: ");
+
+            var сulture = CultureInfo.CreateSpecificCulture("ru");
+            var resourceManager = new ResourceManager("Fitness.CMD.Languages.Messages-ru.resx", typeof(Program).Assembly);
+
+            Console.WriteLine(Languages.Messages_ru.HelloUser);
+            Console.Write(Languages.Messages_ru.EnterNameUser);
             var name = Console.ReadLine();
 
             var userController = new UserController(name);
@@ -17,11 +24,11 @@ namespace Fitness.CMD
 
             if (userController.IsNewUser)
             {
-                Console.Write("Введите пол: ");
+                Console.Write(Languages.Messages_ru.EnterGender);
                 var gender = Console.ReadLine();
                 var dateOfBirth = ParseDateTime();
-                var weight = ParseDouble("Вес");
-                var height = ParseDouble("Рост");
+                var weight = ParseDouble(Languages.Messages_ru.EnterWeight);
+                var height = ParseDouble(Languages.Messages_ru.EnterHeight);
 
                 userController.SetNewUserData(gender, dateOfBirth, weight, height);
             }
