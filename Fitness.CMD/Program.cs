@@ -1,7 +1,6 @@
 ﻿using Fitness.BL.Controller;
 using Fitness.BL.Model;
 using System;
-using System.CodeDom.Compiler;
 using System.Globalization;
 using System.Resources;
 
@@ -12,11 +11,11 @@ namespace Fitness.CMD
         static void Main(string[] args)
         {
 
-            var сulture = CultureInfo.CreateSpecificCulture("ru");
-            var resourceManager = new ResourceManager("Fitness.CMD.Languages.Messages-ru.resx", typeof(Program).Assembly);
-
-            Console.WriteLine(Languages.Messages_ru.HelloUser);
-            Console.Write(Languages.Messages_ru.EnterNameUser);
+            var сulture = CultureInfo.CreateSpecificCulture("en-us");
+            var resourceManager = new ResourceManager("Fitness.CMD.Languages.Messages", typeof(Program).Assembly);
+        
+            Console.WriteLine(resourceManager.GetString("HelloUser", сulture)); 
+            Console.Write(resourceManager.GetString("EnterNameUser", сulture));
             var name = Console.ReadLine();
 
             var userController = new UserController(name);
@@ -24,11 +23,11 @@ namespace Fitness.CMD
 
             if (userController.IsNewUser)
             {
-                Console.Write(Languages.Messages_ru.EnterGender);
+                Console.Write(Languages.Messages.EnterGender);
                 var gender = Console.ReadLine();
                 var dateOfBirth = ParseDateTime();
-                var weight = ParseDouble(Languages.Messages_ru.EnterWeight);
-                var height = ParseDouble(Languages.Messages_ru.EnterHeight);
+                var weight = ParseDouble(Languages.Messages.EnterWeight);
+                var height = ParseDouble(Languages.Messages.EnterHeight);
 
                 userController.SetNewUserData(gender, dateOfBirth, weight, height);
             }

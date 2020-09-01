@@ -130,6 +130,6 @@
     <value>Weight</value>
   </data>
   <data name="HelloUser" xml:space="preserve">
-    <value>Welcome to the AshFitness app</value>
+    <value>Welcome to the AshFitness app!</value>
   </data>
 </root>
