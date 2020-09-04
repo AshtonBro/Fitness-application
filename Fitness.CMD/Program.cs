@@ -26,7 +26,7 @@ namespace Fitness.CMD
             {
                 Console.Write(resourceManager.GetString("EnterGender", сulture));
                 var gender = Console.ReadLine();
-                var dateOfBirth = ParseDateTime();
+                var dateOfBirth = ParseDateTime("дата рождения");
                 var weight = ParseDouble(resourceManager.GetString("EnterWeight", сulture));
                 var height = ParseDouble(resourceManager.GetString("EnterHeight", сulture));
 
@@ -48,7 +48,6 @@ namespace Fitness.CMD
                 switch (key.Key)
                 {
                     case ConsoleKey.E:
-
                         var foods = EnterEating();
                         eatingController.Add(foods.Food, foods.Weight);
 
@@ -59,6 +58,13 @@ namespace Fitness.CMD
                         break;
 
                     case ConsoleKey.A:
+                        var exer = EnterExercise();
+                        exerciseController.AddExercise(exer.Activity, exer.Start, exer.Finish);
+
+                        foreach (var item in exerciseController.Exercises)
+                        {
+                            Console.WriteLine($"\t{item.Activity} c {item.Start.ToShortTimeString()} да {item.Finish.ToShortTimeString()}");
+                        }
 
                         break;
 
@@ -69,6 +75,20 @@ namespace Fitness.CMD
 
                 Console.ReadLine();
             }
+        }
+
+        private static (DateTime Start, DateTime Finish, Activity Activity) EnterExercise()
+        {
+            Console.Write("Введите название упражнения: ");
+            var name = Console.ReadLine();
+
+            var energy = ParseDouble("расход энергии в минуту");
+
+            var start = ParseDateTime("начало упражнения");
+            var finish = ParseDateTime("окончание упражнения");
+            var activity = new Activity(name, energy);
+
+            return (start, finish, activity);
         }
 
         private static (Food Food, double Weight) EnterEating()
@@ -91,12 +111,12 @@ namespace Fitness.CMD
         /// Парсер входного параметра типа DateTime
         /// </summary>
         /// <returns></returns>
-        private static DateTime ParseDateTime()
+        private static DateTime ParseDateTime(string value)
         {
             DateTime dateOfBirth;
             while (true)
             {
-                Console.Write("Введите дату рождения (dd.MM.yyyy): ");
+                Console.Write($"Введите {value} (dd.MM.yyyy): ");
 
                 if (DateTime.TryParse(Console.ReadLine(), out dateOfBirth))
                 {
@@ -104,7 +124,7 @@ namespace Fitness.CMD
                 }
                 else
                 {
-                    Console.WriteLine("Неверный формат даты рождения.");
+                    Console.WriteLine($"Неверный формат {value}.");
                 }
             }
 
