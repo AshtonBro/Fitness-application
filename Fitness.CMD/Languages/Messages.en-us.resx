@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>date of birth</value>
+  </data>
+  <data name="EnergyConsum" xml:space="preserve">
+    <value>energy consumption per minute</value>
+  </data>
+  <data name="EnterEating" xml:space="preserve">
+    <value>E - Introduce food intake.</value>
+  </data>
+  <data name="EnterExerciseName" xml:space="preserve">
+    <value>Enter the name of the exercise: </value>
+  </data>
+  <data name="EnterExercises" xml:space="preserve">
+    <value>A - Enter the exercise.</value>
+  </data>
   <data name="EnterGender" xml:space="preserve">
     <value>Enter gender: </value>
   </data>
@@ -129,7 +144,19 @@
   <data name="EnterWeight" xml:space="preserve">
     <value>Weight</value>
   </data>
+  <data name="FinishEx" xml:space="preserve">
+    <value>end of exercise</value>
+  </data>
   <data name="HelloUser" xml:space="preserve">
     <value>Welcome to the AshFitness app!</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Q - Quit.</value>
+  </data>
+  <data name="StartEx" xml:space="preserve">
+    <value>start of exercise</value>
+  </data>
+  <data name="WhatDoYou" xml:space="preserve">
+    <value>What do you whant to do ?</value>
   </data>
 </root>

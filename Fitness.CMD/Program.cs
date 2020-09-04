@@ -10,10 +10,28 @@ namespace Fitness.CMD
     {
         static void Main(string[] args)
         {
-
-            var сulture = CultureInfo.CreateSpecificCulture("en-us");
+            string language = "";
+            while (language == "")
+            {
+                Console.WriteLine("Please select a language.");
+                Console.WriteLine("E - English");
+                Console.WriteLine("R - Russian");
+                var key = Console.ReadKey();
+                switch(key.Key)
+                {
+                    case ConsoleKey.E:
+                        language = "en-us";
+                        break;
+                    case ConsoleKey.R:
+                        language = "ru-ru";
+                        break;
+                }
+               
+            }
+            var сulture = CultureInfo.CreateSpecificCulture(language);
             var resourceManager = new ResourceManager("Fitness.CMD.Languages.Messages", typeof(Program).Assembly);
-        
+
+
             Console.WriteLine(resourceManager.GetString("HelloUser", сulture)); 
             Console.Write(resourceManager.GetString("EnterNameUser", сulture));
             var name = Console.ReadLine();
@@ -26,7 +44,7 @@ namespace Fitness.CMD
             {
                 Console.Write(resourceManager.GetString("EnterGender", сulture));
                 var gender = Console.ReadLine();
-                var dateOfBirth = ParseDateTime("дата рождения");
+                var dateOfBirth = ParseDateTime(resourceManager.GetString("DateOfBirth", сulture));
                 var weight = ParseDouble(resourceManager.GetString("EnterWeight", сulture));
                 var height = ParseDouble(resourceManager.GetString("EnterHeight", сulture));
 
@@ -39,10 +57,10 @@ namespace Fitness.CMD
 
             while (true)
             {
-                Console.WriteLine("Что вы хотите сделать ?");
-                Console.Write("Е - Ввести приём пищи.");
-                Console.Write("A - Ввести упражнение.");
-                Console.WriteLine("Q - выход.");
+                Console.WriteLine(resourceManager.GetString("WhatDoYou", сulture));
+                Console.WriteLine(resourceManager.GetString("EnterEating", сulture));
+                Console.WriteLine(resourceManager.GetString("EnterExercises", сulture));
+                Console.WriteLine(resourceManager.GetString("Quit", сulture));
                 var key = Console.ReadKey();
                 Console.WriteLine();
                 switch (key.Key)

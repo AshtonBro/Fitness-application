@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>дата рождения</value>
+  </data>
+  <data name="EnergyConsum" xml:space="preserve">
+    <value>расход энергии в минуту</value>
+  </data>
+  <data name="EnterEating" xml:space="preserve">
+    <value>Е - Ввести приём пищи.</value>
+  </data>
+  <data name="EnterExerciseName" xml:space="preserve">
+    <value>Введите название упражнения: </value>
+  </data>
+  <data name="EnterExercises" xml:space="preserve">
+    <value>A - Ввести упражнение.</value>
+  </data>
   <data name="EnterGender" xml:space="preserve">
     <value>Введите пол: </value>
   </data>
@@ -129,7 +144,19 @@
   <data name="EnterWeight" xml:space="preserve">
     <value>Вес</value>
   </data>
+  <data name="FinishEx" xml:space="preserve">
+    <value>окончание упражения</value>
+  </data>
   <data name="HelloUser" xml:space="preserve">
     <value>Вас приветствует приложение AshFitness</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Q - выход.</value>
+  </data>
+  <data name="StartEx" xml:space="preserve">
+    <value>начало упражнения</value>
+  </data>
+  <data name="WhatDoYou" xml:space="preserve">
+    <value>Что вы хотите сделать ?</value>
   </data>
 </root>
