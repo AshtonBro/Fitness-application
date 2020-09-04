@@ -20,6 +20,7 @@ namespace Fitness.CMD
 
             var userController = new UserController(name);
             var eatingController = new EatingController(userController.CurrentUser);
+            var exerciseController = new ExerciseController(userController.CurrentUser);
 
             if (userController.IsNewUser)
             {
@@ -34,23 +35,40 @@ namespace Fitness.CMD
 
 
             Console.WriteLine(userController.CurrentUser);
-            Console.WriteLine("Что вы хотите сделать ?");
-            Console.Write("Е - Ввести приём пищи: ");
-            var key = Console.ReadKey();
-            Console.WriteLine();
 
-            if (key.Key == ConsoleKey.E)
+
+            while (true)
             {
-                var foods = EnterEating();
-                eatingController.Add(foods.Food, foods.Weight);
-
-                foreach(var item in eatingController.Eating.Foods)
+                Console.WriteLine("Что вы хотите сделать ?");
+                Console.Write("Е - Ввести приём пищи.");
+                Console.Write("A - Ввести упражнение.");
+                Console.WriteLine("Q - выход.");
+                var key = Console.ReadKey();
+                Console.WriteLine();
+                switch (key.Key)
                 {
-                    Console.WriteLine($"\t{item.Key} - {item.Value}");
-                }
-            }
+                    case ConsoleKey.E:
 
-            Console.ReadLine();
+                        var foods = EnterEating();
+                        eatingController.Add(foods.Food, foods.Weight);
+
+                        foreach (var item in eatingController.Eating.Foods)
+                        {
+                            Console.WriteLine($"\t{item.Key} - {item.Value}");
+                        }
+                        break;
+
+                    case ConsoleKey.A:
+
+                        break;
+
+                    case ConsoleKey.Q:
+                        Environment.Exit(0);
+                        break;
+                }
+
+                Console.ReadLine();
+            }
         }
 
         private static (Food Food, double Weight) EnterEating()
