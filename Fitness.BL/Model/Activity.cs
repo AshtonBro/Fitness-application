@@ -2,7 +2,11 @@
 
 namespace Fitness.BL.Model
 {
-    class Activity
+    /// <summary>
+    /// Класс активности, включает в себя: Наименование активности, кол-во с жженых калорий.
+    /// </summary>
+    [Serializable]
+    public class Activity
     {
         /// <summary>
         /// Название активности

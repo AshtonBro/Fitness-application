@@ -2,6 +2,10 @@
 
 namespace Fitness.BL.Model
 {
+    /// <summary>
+    /// Класс упражнений, включает в себя: дату, вид активности, исполнителя упражнения
+    /// </summary>
+    [Serializable]
     public class Exercise
     {
         /// <summary>
@@ -38,6 +42,11 @@ namespace Fitness.BL.Model
             Finish = finish;
             Activity = activity;
             User = user;
+        }
+
+        public override string ToString()
+        {
+            return $"Упражнение: {Activity}, Пользователь: {User}";
         }
     }
 }
