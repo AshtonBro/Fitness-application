@@ -1927,7 +1927,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Fitness App"
         "ProductCode" = "8:{448C6F78-EBE1-4F7C-909D-B04A93AF0BB0}"
-        "PackageCode" = "8:{8FBD5D9C-8510-4B53-BE16-8FDA3081B097}"
+        "PackageCode" = "8:{0A97C8D1-615D-4BBC-AF70-D2EC2A502874}"
         "UpgradeCode" = "8:{DB479535-C0B2-45D8-942D-48BE87368E33}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
