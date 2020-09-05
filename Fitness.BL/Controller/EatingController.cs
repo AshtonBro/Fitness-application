@@ -10,7 +10,7 @@ namespace Fitness.BL.Controller
     /// <summary>
     /// Добавление еды и получение продукта из списка
     /// </summary>
-    public class EatingController : ControllerBase
+    public class EatingController : ControllerBase<Eating>
     {
         /// <summary>
         /// Константа имя файла продуктов
@@ -75,7 +75,7 @@ namespace Fitness.BL.Controller
         /// <returns></returns>
         private Eating GetEating()
         {
-            return Load<Eating>(EATING_FILE_NAME) ?? new Eating(user);
+            return Load().First();
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Fitness.BL.Controller
         /// <returns>new List<Food>()</returns>
         private List<Food> GetAllFoods()
         {
-            return Load<List<Food>>(FOODS_FILE_NAME) ?? new List<Food>();
+            return Load();
         }
 
         /// <summary>
@@ -92,8 +92,7 @@ namespace Fitness.BL.Controller
         /// </summary>
         private void Save()
         {
-            Save(FOODS_FILE_NAME, Foods);
-            Save(EATING_FILE_NAME, Eating);
+            Save();
         }
     }
 }

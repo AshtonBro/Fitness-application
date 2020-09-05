@@ -2,10 +2,10 @@
 
 namespace Fitness.BL.Controller
 {
-    public interface IDataSaver
+    public interface IDataSaver<T> where T: class
     {
-        void Save(string fileName, object item);
+        void Save(T item);
 
-        T Load<T>(string fileName) where T : class;
+        T Load();
     }
 }

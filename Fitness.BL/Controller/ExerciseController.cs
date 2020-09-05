@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Fitness.BL.Controller
 {
-    public class ExerciseController : ControllerBase
+    public class ExerciseController : ControllerBase<Exercise>
     {
         /// <summary>
         /// Идентификация пользователя
