@@ -9,6 +9,11 @@ namespace Fitness.BL.Model
     public class Gender
     {
         /// <summary>
+        /// Идентификаторы для EntityFramework
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Название пола
         /// </summary>
         public string Name { get; }

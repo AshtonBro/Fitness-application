@@ -8,6 +8,11 @@ namespace Fitness.BL.Model
     [Serializable]
     public class User
     {
+        /// <summary>
+        /// Идентификаторы для EntityFramework
+        /// </summary>
+        public int Id { get; set; }
+
         #region Properties for user
         /// <summary>
         /// Имя

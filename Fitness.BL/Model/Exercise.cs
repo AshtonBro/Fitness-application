@@ -9,6 +9,11 @@ namespace Fitness.BL.Model
     public class Exercise
     {
         /// <summary>
+        /// Идентификаторы для EntityFramework
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Дата начала выполнения упражнения
         /// </summary>
         public DateTime Start { get; }

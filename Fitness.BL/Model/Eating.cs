@@ -10,6 +10,10 @@ namespace Fitness.BL.Model
     [Serializable]
     public class Eating
     {
+        /// <summary>
+        /// Идентификаторы для EntityFramework
+        /// </summary>
+        public int Id { get; set; }
         public DateTime  MomentOfEating { get; }
 
         public Dictionary<Food, double> Foods { get; }

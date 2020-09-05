@@ -8,6 +8,11 @@ namespace Fitness.BL.Model
     public class Food
     {
         /// <summary>
+        /// Идентификаторы для EntityFramework
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Наименование продукта
         /// </summary>
         public string Name { get; }
