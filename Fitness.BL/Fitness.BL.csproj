@@ -126,6 +126,10 @@
     <Compile Include="Controller\IDataSaver.cs" />
     <Compile Include="Controller\SerializeDataServer.cs" />
     <Compile Include="Controller\UserController.cs" />
+    <Compile Include="Migrations\202009051810211_init db.cs" />
+    <Compile Include="Migrations\202009051810211_init db.designer.cs">
+      <DependentUpon>202009051810211_init db.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Activity.cs" />
     <Compile Include="Model\Eating.cs" />
@@ -138,6 +142,11 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202009051810211_init db.resx">
+      <DependentUpon>202009051810211_init db.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
