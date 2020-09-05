@@ -9,7 +9,7 @@ namespace Fitness.BL.Controller
         {
             using (var db = new FitnessContext())
             {
-                var result = db.Set<T>().Where(f => true).ToList();
+                var result = db.Set<T>().Where(t => true).ToList();
                 return result;
             }
         }

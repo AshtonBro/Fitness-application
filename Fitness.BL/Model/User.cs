@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Fitness.BL.Model
 {
@@ -24,7 +25,7 @@ namespace Fitness.BL.Model
         /// <summary>
         ///Пол 
         /// </summary>
-        public Gender Gender { get; set;  }
+        public virtual Gender Gender { get; set; }
 
         /// <summary>
         /// День рождения
@@ -41,7 +42,8 @@ namespace Fitness.BL.Model
         /// </summary>
         public double Height { get; set; }
 
-       
+        public virtual ICollection<Eating> Eatings { get; set; }
+        public virtual ICollection<Exercise> Exercises { get; set; }
         public int Age { get { return DateTime.Now.Year - DateOfBirth.Year; } }
         // DateTime nowDate = DateTime.Today;
         // int Age = nowDate.Year - birthDate.Year;
