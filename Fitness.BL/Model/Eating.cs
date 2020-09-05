@@ -14,11 +14,13 @@ namespace Fitness.BL.Model
         /// Идентификаторы для EntityFramework
         /// </summary>
         public int Id { get; set; }
-        public DateTime  MomentOfEating { get; }
+        public DateTime  MomentOfEating { get; set; }
 
         public Dictionary<Food, double> Foods { get; }
 
-        public User User { get; }
+        public int UserId { get; set; }
+
+        public virtual User User { get; set; }
 
         public Eating(User user)
         {

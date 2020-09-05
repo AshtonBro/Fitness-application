@@ -16,22 +16,26 @@ namespace Fitness.BL.Model
         /// <summary>
         /// Дата начала выполнения упражнения
         /// </summary>
-        public DateTime Start { get; }
+        public DateTime Start { get; set; }
 
         /// <summary>
         /// Дата окончания выполнения упражнения
         /// </summary>
-        public DateTime Finish { get; }
+        public DateTime Finish { get; set; }
+
+        public int ActivityId { get; set; }
 
         /// <summary>
         /// Выполняемая активность (упражнение)
         /// </summary>
-        public Activity Activity { get; }
+        public virtual Activity Activity { get; set; }
+
+        public int UserId { get; set; }
 
         /// <summary>
         /// Кто делал упражнения
         /// </summary>
-        public User User { get; }
+        public virtual User User { get; set; }
 
         /// <summary>
         /// Конструктор упражнения

@@ -17,7 +17,7 @@ namespace Fitness.BL.Model
         /// <summary>
         /// Имя
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
 
         /// <summary>
         ///Пол 
