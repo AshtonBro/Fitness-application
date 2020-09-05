@@ -2,7 +2,7 @@
 
 namespace Fitness.BL.Controller
 {
-    public interface IDataSaver<T>
+    public interface IDataSaver
     {
         void Save(string fileName, object item);
 

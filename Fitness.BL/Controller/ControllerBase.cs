@@ -27,7 +27,7 @@ namespace Fitness.BL.Controller
         /// <typeparam name="T">Тип объекта</typeparam>
         /// <param name="fileName">Имя файла</param>
         /// <returns></returns>
-        protected T Load<T>(string fileName)
+        protected T Load<T>(string fileName) where T : class
         {
            return saver.Load<T>(fileName);
         }
