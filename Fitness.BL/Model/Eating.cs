@@ -16,7 +16,7 @@ namespace Fitness.BL.Model
         public int Id { get; set; }
         public DateTime  MomentOfEating { get; set; }
 
-        public Dictionary<Food, double> Foods { get; }
+        public Dictionary<Food, double> Foods { get; set; }
 
         public int UserId { get; set; }
 
