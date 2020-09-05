@@ -10,18 +10,8 @@ namespace Fitness.BL.Controller
     /// <summary>
     /// Добавление еды и получение продукта из списка
     /// </summary>
-    public class EatingController : ControllerBase<Eating>
+    public class EatingController : ControllerBase
     {
-        /// <summary>
-        /// Константа имя файла продуктов
-        /// </summary>
-        private const string FOODS_FILE_NAME = "foods.dat";
-
-        /// <summary>
-        /// Константа имя файла съеденных продуктов
-        /// </summary>
-        private const string EATING_FILE_NAME = "eating.dat";
-
         /// <summary>
         /// Приватная переменная типа User
         /// </summary>
@@ -75,16 +65,15 @@ namespace Fitness.BL.Controller
         /// <returns></returns>
         private Eating GetEating()
         {
-            return Load().First();
+            return Load<Eating>().FirstOrDefault() ?? new Eating(user);
         }
-
         /// <summary>
         /// Справочник продуктов. Получение полного списка продуктов из файла
         /// </summary>
         /// <returns>new List<Food>()</returns>
         private List<Food> GetAllFoods()
         {
-            return Load();
+            return Load<Food>() ?? new List<Food>();
         }
 
         /// <summary>
@@ -92,7 +81,8 @@ namespace Fitness.BL.Controller
         /// </summary>
         private void Save()
         {
-            Save();
+            Save(Foods);
+            Save(new List<Eating>() { Eating });
         }
     }
 }

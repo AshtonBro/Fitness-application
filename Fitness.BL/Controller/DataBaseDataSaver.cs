@@ -1,14 +1,11 @@
-﻿using Fitness.BL.Model;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Fitness.BL.Controller
 {
-    public class DataBaseDataSaver<T> : IDataSaver<T> where T: class
+    public class DataBaseDataSaver : IDataSaver
     {
-        public List<T> Load()
+        public List<T> Load<T>() where T : class
         {
             using (var db = new FitnessContext())
             {
@@ -17,11 +14,11 @@ namespace Fitness.BL.Controller
             }
         }
 
-        public void Save(T item)
+        public void Save<T>(List<T> item) where T : class
         {
             using (var db = new FitnessContext())
             {
-                db.Set<T>().Add(item);
+                db.Set<T>().AddRange(item);
                 db.SaveChanges();
             }
         }

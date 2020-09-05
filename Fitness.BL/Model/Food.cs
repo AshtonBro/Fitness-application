@@ -37,6 +37,8 @@ namespace Fitness.BL.Model
         /// </summary>
         public double Calories { get; set; }
 
+        public Food() { }
+
         public Food(string name) : this(name, 0, 0, 0, 0) { }
 
         public Food(string name, double proteins, double fats, double carbohydrates, double calories)

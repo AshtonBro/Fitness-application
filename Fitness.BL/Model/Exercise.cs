@@ -37,6 +37,8 @@ namespace Fitness.BL.Model
         /// </summary>
         public virtual User User { get; set; }
 
+        public Exercise() { }
+
         /// <summary>
         /// Конструктор упражнения
         /// </summary>

@@ -19,6 +19,8 @@ namespace Fitness.BL.Model
         /// </summary>
         public string Name { get; set; }
 
+        public int? GenderId { get; set; }
+
         /// <summary>
         ///Пол 
         /// </summary>
@@ -27,7 +29,7 @@ namespace Fitness.BL.Model
         /// <summary>
         /// День рождения
         /// </summary>
-        public DateTime DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; } = DateTime.Now;
 
         /// <summary>
         /// Вес
@@ -39,11 +41,14 @@ namespace Fitness.BL.Model
         /// </summary>
         public double Height { get; set; }
 
+       
         public int Age { get { return DateTime.Now.Year - DateOfBirth.Year; } }
         // DateTime nowDate = DateTime.Today;
         // int Age = nowDate.Year - birthDate.Year;
         // if(birthDate > nowDate.AddYears(-age)) age--;
         #endregion
+
+        public User() { }
 
         /// <summary>
         /// Конструктор для создания нового пользователя

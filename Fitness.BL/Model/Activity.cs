@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Fitness.BL.Model
 {
@@ -19,9 +21,16 @@ namespace Fitness.BL.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Связывающие поля для коллекции
+        /// </summary>
+        public virtual ICollection<Exercise> Exercise { get; set; }
+
+        /// <summary>
         /// Количество сжигаемых калорий на единицу времени
         /// </summary>
         public double CaloriesPerMinute { get; set; }
+
+        public Activity() { }
 
         /// <summary>
         /// Конструктор инициализации активности

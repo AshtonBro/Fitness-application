@@ -18,6 +18,8 @@ namespace Fitness.BL.Model
         /// </summary>
         public string Name { get; set; }
 
+        public Gender() { }
+
         /// <summary>
         /// Создать новый пол
         /// </summary>

@@ -4,13 +4,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Fitness.BL.Controller
 {
-    class SerializeDataServer<T> : IDataSaver<T> where T: class
+    class SerializeDataServer : IDataSaver
     {
-        public void Save(T item)
+        public void Save<T>(List<T> item) where T : class
         {
             var formatter = new BinaryFormatter();
 
-            var fileName = typeof(T) + ".dat";
+            var fileName = typeof(T).Name;
 
             using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {
@@ -18,11 +18,11 @@ namespace Fitness.BL.Controller
             }
         }
 
-        public List<T> Load()
+        public List<T> Load<T>() where T : class
         {
             var formatter = new BinaryFormatter();
 
-            var fileName = typeof(T) + ".dat";
+            var fileName = typeof(T).Name;
 
             using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
             {

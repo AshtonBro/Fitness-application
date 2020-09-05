@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Fitness.BL.Controller
 {
-    public class ExerciseController : ControllerBase<Exercise>
+    public class ExerciseController : ControllerBase
     {
         /// <summary>
         /// Идентификация пользователя
@@ -22,15 +22,6 @@ namespace Fitness.BL.Controller
         /// </summary>
         public List<Activity> Activities { get; }
 
-        /// <summary>
-        /// Файл со списком упражнений
-        /// </summary>
-        private const string EXERCISES_FILE_NAME = "exercises.dat";
-
-        /// <summary>
-        /// Файл со списком активностей
-        /// </summary>
-        private const string ACTIVITYES_FILE_NAME = "activities.dat";
         public ExerciseController(User user)
         {
             this.user = user ?? throw new ArgumentNullException("User can not be is null", nameof(user));
@@ -41,7 +32,7 @@ namespace Fitness.BL.Controller
 
         private List<Activity> GetAllActivities()
         {
-            return Load<List<Activity>>(ACTIVITYES_FILE_NAME) ?? new List<Activity>();
+            return Load<Activity>() ?? new List<Activity>();
         }
 
         /// <summary>
@@ -75,7 +66,7 @@ namespace Fitness.BL.Controller
         /// <returns>Список упражнений</returns>
         private List<Exercise> GetAllExercises()
         {
-            return Load<List<Exercise>>(EXERCISES_FILE_NAME) ?? new List<Exercise>();
+            return Load<Exercise>() ?? new List<Exercise>();
         }
 
         /// <summary>
@@ -83,8 +74,8 @@ namespace Fitness.BL.Controller
         /// </summary>
         private void Save()
         {
-            Save(EXERCISES_FILE_NAME, Exercises);
-            Save(ACTIVITYES_FILE_NAME, Activities);
+            Save(Exercises);
+            Save(Activities);
         }
     }
 }

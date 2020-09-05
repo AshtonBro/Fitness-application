@@ -22,6 +22,8 @@ namespace Fitness.BL.Model
 
         public virtual User User { get; set; }
 
+        public Eating() { }
+
         public Eating(User user)
         {
             User = user ?? throw new ArgumentNullException("User can not be null", nameof(user));

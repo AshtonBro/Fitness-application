@@ -1,47 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+﻿using System.Collections.Generic;
 
 namespace Fitness.BL.Controller
 {
     /// <summary>
     /// Базовый класс контролера включающий в себя часто использующие методы
     /// </summary>
-    public abstract class ControllerBase<T> where T : class
+    public abstract class ControllerBase
     {
-        protected IDataSaver<T> manger = new SerializeDataServer<T>();
-        protected void Save(T item)
+        protected readonly IDataSaver manager = new DataBaseDataSaver(); // new SerializeDataServer();
+        protected void Save<T>(List<T> item) where T : class
         {
-            manger.Save(item);
+            manager.Save(item);
         }
 
-        protected List<T> Load()
+        protected List<T> Load<T>() where T : class
         {
-            return manger.Load();
+            return manager.Load<T>();
         }
     }
 }
-
-
-
-///// <summary>
-///// Метод сохранения объекта (users, foods)
-///// </summary>
-///// <param name="fileName">Имя файла</param>
-///// <param name="item">Тип объекта</param>
-//protected void Save(string fileName, object item)
-//{
-
-//}
-
-///// <summary>
-///// Метод загрузки объекта (users, foods)
-///// </summary>
-///// <typeparam name="T">Тип объекта</typeparam>
-///// <param name="fileName">Имя файла</param>
-///// <returns></returns>
-//protected T Load<T>(string fileName) where T : class
-//{
-//   return saver.Load<T>(fileName);
-//}
